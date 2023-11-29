@@ -13,7 +13,7 @@ export default function Navbar({
 }) {
   const aboutMeInView = useInView(aboutMeRef, { amount: 0.6 });
   const educationInView = useInView(educationRef, { amount: 0.6 });
-  const projectsInView = useInView(projectsRef, { amount: 0.6 });
+  const projectsInView = useInView(projectsRef, { amount: 0.5 });
   const footerInView = useInView(footerRef, { amount: 0.6 });
 
   return (
