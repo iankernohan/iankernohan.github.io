@@ -9,8 +9,10 @@ export default function Education({ educationRef }) {
       <RevealLeft>
         <div className="education-content">
           <div>
-            <img src="../wayne_logo.png" alt="wayne logo" />
-            <h3>Wayne State</h3>
+            <a href="https://wayne.edu/" target="_blank">
+              <img src="../wayne_logo.png" alt="wayne logo" />
+              <h3>Wayne State</h3>
+            </a>
             <p>
               I attended Wayne State University from 2018-2022, where I
               graduated Summa Cum Laude with a Bachelors degree in Psychology
@@ -21,8 +23,11 @@ export default function Education({ educationRef }) {
           </div>
 
           <div>
-            <img src="../udemy_logo.png" alt="udemy logo" />
-            <h3>Udemy</h3>
+            <a href="https://www.udemy.com/" target="_blank">
+              <img src="../udemy_logo.png" alt="udemy logo" />
+              <h3>Udemy</h3>
+            </a>
+
             <p>
               Udemy is where I've learned most of what I know about programming.
               I started on Udemy with Dr. Angela Yu's{" "}

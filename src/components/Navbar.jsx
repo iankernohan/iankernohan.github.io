@@ -55,18 +55,21 @@ export default function Navbar({
           </span>
         </RevealTop>
 
-        <RevealBottom>
-          <button>Resume</button>
-        </RevealBottom>
-
-        <div
-          style={{ marginTop: "auto", marginBottom: "1rem", fontSize: "2rem" }}
-        >
+        <div className="navbar-bottom">
           <RevealBottom>
             <a
-              href="https://github.com/iankernohan"
-              style={{ textDecoration: "none", color: "#c5c6c7" }}
+              href="../resume.pdf"
+              onClick={() => document.title("Resume")}
+              target="_blank"
             >
+              <button className="outline-button">Resume</button>
+            </a>
+          </RevealBottom>
+          <RevealBottom>
+            <button className="outline-button">Play Minesweeper</button>
+          </RevealBottom>
+          <RevealBottom>
+            <a href="https://github.com/iankernohan" target="_blank">
               <FaGithub />
             </a>
           </RevealBottom>

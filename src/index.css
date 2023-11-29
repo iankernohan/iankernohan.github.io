@@ -25,10 +25,34 @@
   padding: 0;
 }
 
+a {
+  text-decoration: none;
+  color: var(--light-grey);
+}
+
 h2 {
   font-weight: 400;
   font-size: 3rem;
   color: var(--light-teal);
+}
+
+.outline-button {
+  background-color: var(--black);
+  border: 1px solid var(--light-teal);
+  color: var(--light-teal);
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transition-property: background-color, color, transform;
+  transition-duration: 0.5s;
+}
+
+.outline-button:hover {
+  background-color: var(--light-teal);
+  border: none;
+  color: #0b0c10;
+  font-weight: 600;
+  transform: translateY(-5px);
 }
 
 .container {
@@ -71,27 +95,17 @@ h2 {
   cursor: pointer;
 }
 
-.navbar button {
-  background-color: var(--black);
-  border: 1px solid var(--light-teal);
-  color: var(--light-teal);
-  border-radius: 5px;
-  padding: 10px;
-  cursor: pointer;
-  transition-property: background-color, color, transform;
-  transition-duration: 0.5s;
-}
-
-.navbar button:hover {
-  background-color: var(--light-teal);
-  border: none;
-  color: #0b0c10;
-  font-weight: 600;
-  transform: translateY(-5px);
-}
-
 .navbar .active {
   font-weight: 700;
+}
+
+.navbar-bottom {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  gap: 1rem;
 }
 
 /* HEADER CONTENT */
@@ -182,7 +196,10 @@ h2 {
 }
 
 .education-content {
+  /* display: grid;
+  grid-template-columns: repeat(3, minmax(300px, 1fr)); */
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   gap: 30px;
   text-align: center;
@@ -190,6 +207,9 @@ h2 {
 
 .education-content div {
   max-width: 30%;
+  width: fit-content;
+
+  overflow: auto;
 }
 
 .education-content img {
@@ -207,6 +227,12 @@ h2 {
   text-align: start;
 }
 
+@media (max-width: 600px) {
+  .education-content div {
+    max-width: none;
+  }
+}
+
 /* PROJECTS CONTENT  */
 
 .projects {
@@ -220,9 +246,9 @@ h2 {
 .project-container {
   display: flex;
   flex-wrap: wrap;
-  width: 75%;
+  width: 100%;
   justify-content: center;
-  gap: 50px;
+  gap: 100px;
 }
 
 .project-container div {
@@ -244,7 +270,7 @@ h2 {
 }
 
 .project-container img {
-  width: 150px;
+  width: 300px;
   aspect-ratio: 1;
 }
 

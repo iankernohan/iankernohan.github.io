@@ -27,11 +27,16 @@ export default function Footer({
         <section className="links">
           <h4>Links</h4>
           <div>
-            <a
-              href="https://github.com/iankernohan"
-              style={{ textDecoration: "none", color: "#c5c6c7" }}
-            >
+            <a href="https://github.com/iankernohan" target="_blank">
               GitHub
+            </a>
+          </div>
+          <div>
+            <a
+              href="https://www.linkedin.com/in/ian-kernohan-10274a269/"
+              target="_blank"
+            >
+              LinkedIn
             </a>
           </div>
         </section>
