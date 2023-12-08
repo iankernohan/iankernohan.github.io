@@ -1,17 +1,4 @@
 :root {
-  font-family: Montserrat, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 100;
-
-  color-scheme: light dark;
-  color: var(--light-grey);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
   --black: #0b0c10;
   --dark-grey: #242424;
   --dark-blue: #1f2833;
@@ -25,6 +12,16 @@
   padding: 0;
 }
 
+html {
+  font-family: Montserrat, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 100;
+  color-scheme: light dark;
+  color: var(--light-grey);
+  background-color: #242424;
+  width: 100%;
+}
+
 a {
   text-decoration: none;
   color: var(--light-grey);
@@ -34,6 +31,7 @@ h2 {
   font-weight: 400;
   font-size: 3rem;
   color: var(--light-teal);
+  text-align: center;
 }
 
 .outline-button {
@@ -57,13 +55,19 @@ h2 {
 
 .container {
   display: grid;
-  grid-template-columns: 150px 1fr;
+  grid-template-columns: 15% 85%;
 }
 
 .main-content {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
+  overflow: auto;
+}
+
+.header,
+.about-me,
+.projects,
+.education,
+.footer {
+  padding: 10%;
 }
 
 /* NAVBAR CONTENT  */
@@ -71,7 +75,6 @@ h2 {
 .navbar {
   background-color: var(--black);
   color: var(--light-grey);
-  width: 100%;
   height: 100vh;
   position: sticky;
   top: 0;
@@ -81,10 +84,9 @@ h2 {
   align-items: center;
   gap: 50px;
   padding: 10px;
-  grid-column: 1;
-  grid-row: 1 span 2;
   text-align: center;
   font-weight: 400;
+  flex-wrap: wrap;
 }
 
 .navbar h1 {
@@ -102,38 +104,65 @@ h2 {
 .navbar-bottom {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: auto;
   margin-bottom: 2rem;
   font-size: 2rem;
   gap: 1rem;
 }
 
-/* HEADER CONTENT */
+.nav-drawer-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-size: 1.25rem;
+}
 
-.header,
-.about-me,
-.projects,
-.education {
+.nav-drawer-content section {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  gap: 10px;
+  gap: 2rem;
 }
+
+@media (max-width: 960px) {
+  .container {
+    display: block;
+  }
+  .navbar {
+    flex-direction: row;
+    height: 13vh;
+    overflow: hidden;
+    justify-content: space-between;
+  }
+  .navbar h1 {
+    justify-self: center;
+  }
+  .main-content {
+    max-height: 100vh;
+  }
+  .footer h4 {
+    text-align: center;
+  }
+}
+
+/* HEADER CONTENT */
 
 .header {
-  background: no-repeat center/100%
-    url("https://images.unsplash.com/photo-1533134486753-c833f0ed4866?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjZ8fHNpbXBsZSUyMGFic3RyYWN0JTIwZGFya3xlbnwwfHwwfHx8MA%3D%3D");
+  background: url("../background.jpg");
+  background-position: 45%;
+  background-repeat: no-repeat;
+  background-size: cover;
   font-size: 3rem;
-  align-items: start;
   height: 100vh;
+  flex-wrap: wrap;
 }
 
-.headerText {
+.header-content {
   display: flex;
   flex-direction: column;
   align-content: start;
-  margin-left: 10rem;
+  height: 75%;
+  justify-content: space-evenly;
   font-size: 5rem;
   text-shadow: -2px 2px 2px rgba(0, 0, 0, 0.398);
 }
@@ -143,7 +172,6 @@ h2 {
 }
 
 .header h4 {
-  margin-left: 6rem;
   font-size: 4rem;
   color: var(--light-teal);
   font-weight: 400;
@@ -151,6 +179,43 @@ h2 {
 
 .header strong {
   font-weight: 500;
+}
+
+.header .p {
+  font-size: 2rem;
+  font-weight: 200;
+  width: 75%;
+  text-align: end;
+}
+
+@media (max-width: 960px) {
+  .header {
+    max-height: 75vh;
+  }
+  .header-content {
+    height: 100%;
+    justify-content: start;
+  }
+  .header h3 {
+    font-size: 4rem;
+  }
+  .header .header-content h4 {
+    font-size: 3rem;
+  }
+  .header .p {
+    font-size: 1.25rem;
+    margin-top: auto;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 500px) {
+  .header h3 {
+    font-size: 3.5rem;
+  }
+  .header .header-content h4 {
+    font-size: 2rem;
+  }
 }
 
 .about-me,
@@ -163,18 +228,25 @@ h2 {
 .about-me {
   background-color: var(--dark-blue);
   color: var(--light-grey);
-  padding: 100px 100px;
+}
+
+.about-me-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
 
 .about-me .image {
-  width: 400px;
-  height: 600px;
+  width: 75%;
+  height: min-content;
   object-fit: contain;
   overflow: hidden;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.498);
   border-radius: 10px;
+}
+
+.about-me h2 {
+  text-align: start;
+  grid-column: 2;
 }
 
 .about-me img {
@@ -185,14 +257,32 @@ h2 {
 .about-me p {
   font-size: 1.5rem;
   font-weight: 200;
+  grid-column: 2;
+}
+
+@media (max-width: 800px) {
+  .about-me-container {
+    display: block;
+  }
+  .about-me .image {
+    width: 10rem;
+    float: right;
+  }
+  .about-me h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
 }
 
 /* EDUCATION CONTENT  */
 
 .education {
   background-color: var(--dark-grey);
-  padding: 100px 100px;
   gap: 50px;
+}
+
+.education h2 {
+  margin-bottom: 2rem;
 }
 
 .education-content {
@@ -227,9 +317,13 @@ h2 {
   text-align: start;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 960px) {
   .education-content div {
     max-width: none;
+  }
+
+  .project-container div {
+    width: fit-content;
   }
 }
 
@@ -238,9 +332,12 @@ h2 {
 .projects {
   background-color: var(--dark-blue);
   height: fit-content;
-  justify-self: center;
-  padding: 100px;
+  justify-content: center;
   gap: 50px;
+}
+
+.projects h2 {
+  margin-bottom: 2rem;
 }
 
 .project-container {
@@ -291,7 +388,8 @@ h2 {
 .contact form {
   display: grid;
   grid-template-columns: 20% 1fr;
-  gap: 10px;
+  gap: 0.5rem;
+  column-gap: 1.25rem;
 }
 
 .contact button {
@@ -318,10 +416,10 @@ h2 {
 .footer {
   background-color: #0b0c10;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   gap: 50px;
-  padding: 50px;
   font-weight: 300;
+  flex-wrap: wrap;
 }
 
 .footer h4 {
@@ -330,7 +428,7 @@ h2 {
 }
 
 .footer .contact {
-  padding: 0 100px;
+  padding: 0 20%;
 }
 
 .footer section {

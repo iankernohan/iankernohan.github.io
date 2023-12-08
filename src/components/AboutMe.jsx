@@ -1,16 +1,15 @@
+/* eslint-disable react/no-unescaped-entities */
 import RevealRight from "../animations/RevealRight";
 
 export default function AboutMe({ aboutMeRef }) {
   return (
     <section className="about-me" ref={aboutMeRef}>
       <RevealRight>
-        <div className="image">
-          <img src="../me.JPG" alt="me" />
-        </div>
-      </RevealRight>
-      <RevealRight>
-        <div>
+        <div className="about-me-container">
           <h2>About Me</h2>
+          <div className="image">
+            <img src="../me.JPG" alt="me" />
+          </div>
           <p>
             My name is Ian Kernohan, I'm a self taught full-stack web developer.
             I graduated from Wayne State University with a Bachelors Degree in

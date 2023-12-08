@@ -1,10 +1,12 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import Footer from "./Footer";
 import AboutMe from "./AboutMe";
 import Education from "./Education";
 import Header from "./Header";
 import Navbar from "./Navbar";
 import Projects from "./Projects";
+
+const mobileWidth = screen.availWidth <= 960;
 
 export default function MainContent() {
   const headerRef = useRef(null);
@@ -13,19 +15,21 @@ export default function MainContent() {
   const footerRef = useRef(null);
   const educationRef = useRef(null);
 
-  function scroll(ref) {
-    ref.current.scrollIntoView({ behavior: "smooth" });
-  }
+  const [isMobileWidth, setIsOpenWidth] = useState(mobileWidth);
+
+  window.addEventListener("resize", () => {
+    screen.availWidth <= 960 ? setIsOpenWidth(true) : setIsOpenWidth(false);
+  });
 
   return (
     <div className="container">
       <Navbar
-        scroll={scroll}
         headerRef={headerRef}
         aboutMeRef={aboutMeRef}
         projectsRef={projectsRef}
         footerRef={footerRef}
         educationRef={educationRef}
+        isMobileWidth={isMobileWidth}
       />
       <div className="main-content">
         <Header headerRef={headerRef} />

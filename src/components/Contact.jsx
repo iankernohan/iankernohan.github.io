@@ -1,16 +1,40 @@
+import { useRef } from "react";
+import emailjs from "@emailjs/browser";
+
 export default function Contact() {
-  function handleSubmit(e) {
+  const form = useRef();
+
+  function sendEmail(e) {
     e.preventDefault();
-    console.log(e);
+
+    emailjs
+      .sendForm(
+        "service_l8xi024",
+        "template_67zv3vy",
+        form.current,
+        "ckRiIYsl9EWD3S-FE"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+    e.target.name.value = "";
+    e.target.email.value = "";
+    e.target.message.value = "";
   }
 
   return (
     <section className="contact">
       <h4>Contact Me</h4>
-      <form>
+      <form ref={form} onSubmit={sendEmail}>
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" name="user_name" required />
         <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="email" required />
-
+        <input type="email" id="email" name="user_email" required />
         <label htmlFor="message">Message</label>
         <textarea
           id="message"
@@ -19,8 +43,7 @@ export default function Contact() {
           name="message"
           required
         ></textarea>
-
-        <button onClick={handleSubmit}>Send</button>
+        <button>Send</button>
       </form>
     </section>
   );

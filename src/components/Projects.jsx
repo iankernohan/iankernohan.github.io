@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import RevealRight from "../animations/RevealRight";
 
 export default function Projects({ projectsRef }) {

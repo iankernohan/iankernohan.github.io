@@ -1,16 +1,29 @@
 import RevealLeft from "../animations/RevealLeft";
+import RevealRight from "../animations/RevealRight";
 
 export default function Header({ headerRef }) {
   return (
     <section className="header" ref={headerRef}>
-      <RevealLeft>
-        <div className="headerText">
-          <h3>
-            Hi! I'm <strong>Ian</strong>
-          </h3>
-          <h4>Web Developer</h4>
+      <div className="header-content">
+        <div>
+          <RevealLeft>
+            <h3>
+              Hi! I&apos;m <strong>Ian</strong>
+            </h3>
+            <h4>Web Developer</h4>
+          </RevealLeft>
         </div>
-      </RevealLeft>
+        <div className="p">
+          <RevealRight>
+            <p>
+              Welcome to my portfolio website! I&apos;m Ian, a self-taught
+              programmer, and this is where I showcase my passion for making
+              awesome applications and websites. Explore my projects and
+              let&apos;s connect!
+            </p>
+          </RevealRight>
+        </div>
+      </div>
     </section>
   );
 }
