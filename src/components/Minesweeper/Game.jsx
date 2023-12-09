@@ -1,83 +1,29 @@
-import { useEffect } from "react";
 import "./Minesweeper.css";
-import Sqaure from "./Sqaure";
-import { Link } from "react-router-dom";
-import { useMinesweeper } from "./Context";
+import { useNavigate } from "react-router-dom";
 
-export default function Game({ board, setStartOver }) {
-  // const [isPlaying, setIsPlaying] = useState(true);
-  // const [bombCount, setBombCount] = useState(20);
-
-  // const boardSize = 10;
-  // const board = [];
-  // // const bombCount = 20;
-  // const bombSpots = [];
-
-  const {
-    bombCount,
-    setBombCount,
-    isPlaying,
-    boardSize,
-    setBoardSize,
-    setBombSpots,
-    setIsPlaying,
-  } = useMinesweeper();
-
-  // useEffect(() => {
-  //   createBombs();
-  // }, [board]);
-
-  // function createBoard() {
-  //   for (let i = 0; i < boardSize; i++) {
-  //     const row = [];
-  //     for (let j = 0; j < boardSize; j++) {
-  //       const index = String(i) + String(j);
-  //       row.push(
-  //         <Sqaure
-  //           key={Math.random()}
-  //           index={index}
-  //           bombSpots={bombSpots}
-  //           boardSize={boardSize}
-  //           board={board}
-  //         />
-  //       );
-  //     }
-  //     board.push(row);
-  //   }
-  //   console.log("board created");
-  // }
-  // createBoard();
-
-  // function createBombs() {
-  //   while (bombSpots.length < bombCount) {
-  //     const randIndex = Math.floor(Math.random() * boardSize ** 2);
-  //     if (!bombSpots.includes(String(randIndex))) {
-  //       if (randIndex < 10) {
-  //         bombSpots.push("0" + String(randIndex));
-  //       } else {
-  //         bombSpots.push(String(randIndex));
-  //       }
-  //     }
-  //   }
-  //   console.log(bombSpots);
-  // }
-
-  function restart() {
-    setStartOver((curr) => !curr);
-    setIsPlaying(true);
-  }
-
-  console.log("Game.jsx rendered");
+export default function Game({
+  board,
+  boardSize,
+  bombCount,
+  isPlaying,
+  dispatch,
+}) {
+  const navigate = useNavigate();
 
   return (
-    <div className="minesweeper-container">
-      <Link to={"/"}>
-        <button>Back</button>
-      </Link>
-      <div>
+    <div className="minesweeper">
+      <div className="minesweeper-header">
+        <h2>
+          <div>000</div>
+          <div>Time</div>
+        </h2>
         <h1>Minesweeper</h1>
-        <h2>Bombs: {bombCount}</h2>
+        <h2>
+          <div>{bombCount}</div>
+          <div>Bombs</div>
+        </h2>
       </div>
+
       <section
         className="gameboard"
         style={{
@@ -90,9 +36,27 @@ export default function Game({ board, setStartOver }) {
       >
         {board}
       </section>
-      <p>Click to mark a square as a mine</p>
-      <p>Double Click to select a square</p>
-      <button onClick={restart}>restart</button>
+
+      <div className="minesweeper-footer">
+        <button className="button-outline" onClick={() => navigate(-1)}>
+          Back
+        </button>
+
+        <div>
+          <ul>
+            <li>Click on a square to mark it as a mine</li>
+            <li>Double Click to reveal what's underneath...</li>
+          </ul>
+        </div>
+
+        <button
+          className="button"
+          onClick={() => dispatch({ type: "startOver" })}
+        >
+          restart
+        </button>
+      </div>
+
       {!isPlaying && (
         <div>
           <h2>Game Over</h2>

@@ -1,22 +1,58 @@
 import Game from "./Game";
 import Sqaure from "./Sqaure";
-import { MinesweeperProvider, useMinesweeper } from "./Context";
-import { useEffect, useState } from "react";
+import { MinesweeperProvider } from "./Context";
+import { useEffect, useReducer } from "react";
+
+const initialState = {
+  boardSize: 10,
+  bombCount: 20,
+  board: [],
+  startOver: false,
+  isPlaying: true,
+};
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "createBoard":
+      return {
+        ...state,
+        board: action.payload,
+      };
+    case "changeBombCount":
+      return {
+        ...state,
+        bombCount: state.bombCount + action.payload,
+      };
+    case "gameOver":
+      return {
+        ...state,
+        isPlaying: false,
+      };
+    case "startOver":
+      return {
+        ...initialState,
+        startOver: !state.startOver,
+      };
+    default:
+      throw new Error("Unknown Action");
+  }
+}
 
 function Minesweeper() {
-  const boardSize = 10;
-  const bombCount = 20;
-  const bombSpots = [];
-
-  const [board, setBoard] = useState([]);
-  const [startOver, setStartOver] = useState(true);
+  const [{ boardSize, bombCount, board, startOver, isPlaying }, dispatch] =
+    useReducer(reducer, initialState);
 
   useEffect(() => {
-    createBoard();
-    createBombs();
+    initGame();
   }, [startOver]);
 
-  function createBoard() {
+  async function initGame() {
+    const bombSpots = await createBombs();
+    const newBoard = createBoard(bombSpots);
+    dispatch({ type: "createBoard", payload: newBoard });
+  }
+
+  function createBoard(bombSpots) {
     const newBoard = [];
     for (let i = 0; i < boardSize; i++) {
       const row = [];
@@ -28,40 +64,41 @@ function Minesweeper() {
             index={index}
             bombSpots={bombSpots}
             boardSize={boardSize}
-            board={board}
+            isPlaying={isPlaying}
+            dispatch={dispatch}
           />
         );
       }
       newBoard.push(row);
     }
-    setBoard(newBoard);
+    return newBoard;
   }
 
-  function createBombs() {
-    while (bombSpots.length < bombCount) {
+  async function createBombs() {
+    const newBombSpots = [];
+    while (newBombSpots.length < bombCount) {
       const randIndex = Math.floor(Math.random() * boardSize ** 2);
-      if (!bombSpots.includes(String(randIndex))) {
+      if (!newBombSpots.includes(String(randIndex))) {
         if (randIndex < 10) {
-          bombSpots.push("0" + String(randIndex));
+          newBombSpots.push("0" + String(randIndex));
         } else {
-          bombSpots.push(String(randIndex));
+          newBombSpots.push(String(randIndex));
         }
       }
     }
-    console.log(bombSpots);
+    return newBombSpots;
   }
 
   console.log("Minesweeper.jsx rendered");
 
   return (
-    <MinesweeperProvider>
-      <Game
-        board={board}
-        setStartOver={setStartOver}
-        bombSpots={bombSpots}
-        bombCount={bombCount}
-      />
-    </MinesweeperProvider>
+    <Game
+      board={board}
+      boardSize={boardSize}
+      bombCount={bombCount}
+      isPlaying={isPlaying}
+      dispatch={dispatch}
+    />
   );
 }
 

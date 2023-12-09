@@ -7,7 +7,7 @@
   --dark-teal: #45a29e;
 }
 
-.minesweeper-container {
+.minesweeper {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -53,4 +53,59 @@
   border-left: 5px solid var(--dark-grey);
   border-bottom: 5px solid var(--light-grey);
   border-right: 5px solid var(--light-grey);
+}
+
+.minesweeper-header,
+.minesweeper-footer {
+  width: 75%;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  align-items: end;
+  margin: 2rem 0;
+}
+
+.minesweeper h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: var(--dark-teal);
+  justify-self: center;
+}
+
+.minesweeper h2 {
+  font-size: 2rem;
+  margin: 0;
+  color: var(--light-grey);
+}
+
+.minesweeper-footer button:last-child {
+  justify-self: end;
+}
+
+.minesweeper-footer div {
+  justify-self: center;
+}
+
+.button,
+.button-outline:hover {
+  height: 2rem;
+  width: 4rem;
+  border: 2px solid var(--dark-teal);
+  background-color: var(--dark-teal);
+  color: var(--black);
+  font-weight: 700;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.button-outline,
+.button:hover {
+  height: 2rem;
+  width: 4rem;
+  background-color: #0b0c1000;
+  border: 2px solid var(--dark-teal);
+  color: var(--light-grey);
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 0.25rem;
 }

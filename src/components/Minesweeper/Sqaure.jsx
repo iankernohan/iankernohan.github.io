@@ -1,23 +1,17 @@
-import { useContext, useEffect, useState } from "react";
-import { useMinesweeper } from "./Context";
+import { useEffect, useState } from "react";
 
 export default function Sqaure({
   index,
   bombSpots,
   boardSize,
-  board,
-  // isPlaying,
-  // setIsPlaying,
-  // setBombCount,
-  // bombCount,
+  isPlaying,
+  dispatch,
 }) {
   const [isSelected, setIsSelected] = useState(false);
   const [isABomb, setIsABomb] = useState(false);
   const [bombsAround, setBombsAround] = useState(0);
   const [isMarked, setIsMarked] = useState(false);
   const [numColor, setNumColor] = useState({});
-
-  const { isPlaying, setIsPlaying, bombCount, setBombCount } = useMinesweeper();
 
   const shiftNums = [
     1,
@@ -82,11 +76,11 @@ export default function Sqaure({
       if (bombSpots.includes(index)) {
         console.log("Is a bomb");
         setIsABomb(true);
-        setIsPlaying(false);
+        dispatch({ type: "gameOver" });
       }
       setIsSelected(true);
       // openEmptySpace();
-      isMarked && setBombCount((curr) => curr + 1);
+      isMarked && dispatch({ type: "changeBombCount", payload: 1 });
       setIsMarked(false);
     }
   }
@@ -95,30 +89,10 @@ export default function Sqaure({
     if (isPlaying && !isSelected) {
       setIsMarked((curr) => !curr);
       isMarked
-        ? setBombCount((curr) => curr + 1)
-        : setBombCount((curr) => curr - 1);
+        ? dispatch({ type: "changeBombCount", payload: 1 })
+        : dispatch({ type: "changeBombCount", payload: -1 });
     }
   }
-
-  // function openEmptySpace() {
-  //   if (!bombsAround) {
-  //     let openSpaces = [Number(index)];
-  //     // while (openSpaces.length !== 0) {
-  //     for (let space of openSpaces) {
-  //       for (let num of shiftNums) {
-  //         let spot = space + num;
-  //         if (!numBombsAround(spot)) {
-  //           spot = String(spot);
-  //           const square = board[spot[0]][spot[1]];
-  //           console.log(square);
-  //           openSpaces.push(spot);
-  //         }
-  //       }
-  //       openSpaces = openSpaces.filter((i) => i !== space);
-  //     }
-  //     // }
-  //   }
-  // }
 
   function numBombsAround(index) {
     let numBombs = 0;
@@ -153,3 +127,21 @@ export default function Sqaure({
     </div>
   );
 }
+
+// function openEmptySpace() {
+//   if (!bombsAround) {
+//     let openSpaces = [Number(index)];
+//     for (let space of openSpaces) {
+//       for (let num of shiftNums) {
+//         let spot = space + num;
+//         if (!numBombsAround(spot)) {
+//           spot = String(spot);
+//           const square = board[spot[0]][spot[1]];
+//           console.log(square);
+//           openSpaces.push(spot);
+//         }
+//       }
+//       openSpaces = openSpaces.filter((i) => i !== space);
+//     }
+//   }
+// }
