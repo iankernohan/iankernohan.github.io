@@ -84,6 +84,7 @@ h2 {
   align-items: center;
   gap: 50px;
   padding: 10px;
+  padding-top: 2rem;
   text-align: center;
   font-weight: 400;
   flex-wrap: wrap;
@@ -133,6 +134,7 @@ h2 {
     height: 13vh;
     overflow: hidden;
     justify-content: space-between;
+    padding-top: 10px;
   }
   .navbar h1 {
     justify-self: center;
@@ -358,6 +360,10 @@ h2 {
   overflow: auto;
   gap: 15px;
   text-align: center;
+}
+
+.project-container div::-webkit-scrollbar {
+  display: none;
 }
 
 .project-container h3 {

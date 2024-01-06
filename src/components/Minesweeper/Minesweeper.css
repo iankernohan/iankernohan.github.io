@@ -55,7 +55,6 @@
   border-right: 5px solid var(--light-grey);
 }
 
-.minesweeper-header,
 .minesweeper-footer {
   width: 75%;
   display: grid;
@@ -64,11 +63,19 @@
   margin: 2rem 0;
 }
 
+.minesweeper-header {
+  width: 75%;
+  text-align: center;
+}
+.minesweeper-header div {
+  display: flex;
+  justify-content: space-between;
+}
+
 .minesweeper h1 {
   font-size: 3rem;
   margin: 0;
   color: var(--dark-teal);
-  justify-self: center;
 }
 
 .minesweeper h2 {
@@ -108,4 +115,15 @@
   font-weight: 700;
   cursor: pointer;
   border-radius: 0.25rem;
+}
+
+.game-over {
+  position: absolute;
+  color: var(--light-grey);
+  font-size: 3rem;
+  text-align: center;
+  background-color: #1f2833ab;
+  padding: 2rem;
+  border-radius: 2rem;
+  backdrop-filter: blur(3px);
 }

@@ -1,29 +1,32 @@
 import "./Minesweeper.css";
 import { useNavigate } from "react-router-dom";
+import Timer from "./Timer";
+import GameOver from "./GameOver";
 
 export default function Game({
   board,
   boardSize,
-  bombCount,
+  bombsRemaining,
   isPlaying,
   dispatch,
+  time,
+  win,
 }) {
   const navigate = useNavigate();
 
   return (
     <div className="minesweeper">
       <div className="minesweeper-header">
-        <h2>
-          <div>000</div>
-          <div>Time</div>
-        </h2>
         <h1>Minesweeper</h1>
-        <h2>
-          <div>{bombCount}</div>
-          <div>Bombs</div>
-        </h2>
+        {isPlaying && (
+          <div>
+            <h2>
+              Time <Timer dispatch={dispatch} time={time} />
+            </h2>
+            <h2>Bombs {bombsRemaining}</h2>
+          </div>
+        )}
       </div>
-
       <section
         className="gameboard"
         style={{
@@ -32,11 +35,11 @@ export default function Game({
           gridTemplateRows: `repeat(${boardSize}, 1fr)`,
           width: "75%",
           aspectRatio: "1",
+          position: "relative",
         }}
       >
         {board}
       </section>
-
       <div className="minesweeper-footer">
         <button className="button-outline" onClick={() => navigate(-1)}>
           Back
@@ -56,11 +59,8 @@ export default function Game({
           restart
         </button>
       </div>
-
       {!isPlaying && (
-        <div>
-          <h2>Game Over</h2>
-        </div>
+        <GameOver win={win} time={time} bombsRemaining={bombsRemaining} />
       )}
     </div>
   );
