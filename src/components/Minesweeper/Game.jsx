@@ -27,19 +27,20 @@ export default function Game({
           </div>
         )}
       </div>
-      <section
-        className="gameboard"
-        style={{
-          display: "grid",
-          gridTemplateColumns: `repeat(${boardSize}, 1fr)`,
-          gridTemplateRows: `repeat(${boardSize}, 1fr)`,
-          width: "75%",
-          aspectRatio: "1",
-          position: "relative",
-        }}
-      >
-        {board}
+
+      <section className="gameboard-container">
+        <div
+          className="gameboard"
+          style={{
+            display: "grid",
+            gridTemplateColumns: `repeat(${boardSize}, 1fr)`,
+            gridTemplateRows: `repeat(${boardSize}, 1fr)`,
+          }}
+        >
+          {board}
+        </div>
       </section>
+
       <div className="minesweeper-footer">
         <button className="button-outline" onClick={() => navigate(-1)}>
           Back

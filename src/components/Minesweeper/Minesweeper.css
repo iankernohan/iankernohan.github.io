@@ -14,12 +14,23 @@
   align-items: center;
   height: 100vh;
   background-color: var(--black);
-  overflow: auto;
+  overflow: hidden;
+}
+
+.gameboard-container {
+  width: 75%;
+}
+
+.gameboard-container::-webkit-scrollbar {
+  display: none;
 }
 
 .gameboard {
   box-shadow: 0 0 10px var(--dark-teal);
   gap: 10px;
+  width: 100%;
+  aspect-ratio: 1;
+  position: relative;
 }
 
 .square {
@@ -31,7 +42,7 @@
   box-shadow: none;
   background-color: var(--light-teal);
   font-weight: 700;
-  font-size: 2rem;
+  font-size: 180%;
   color: black;
   transition: all 0.25s;
   border-bottom: 5px solid var(--dark-grey);
@@ -55,17 +66,10 @@
   border-right: 5px solid var(--light-grey);
 }
 
-.minesweeper-footer {
-  width: 75%;
-  display: grid;
-  grid-template-columns: 20% 60% 20%;
-  align-items: end;
-  margin: 2rem 0;
-}
-
 .minesweeper-header {
   width: 75%;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 .minesweeper-header div {
   display: flex;
@@ -76,12 +80,21 @@
   font-size: 3rem;
   margin: 0;
   color: var(--dark-teal);
+  align-self: center;
 }
 
 .minesweeper h2 {
   font-size: 2rem;
   margin: 0;
   color: var(--light-grey);
+}
+
+.minesweeper-footer {
+  width: 75%;
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  align-items: end;
+  margin: 2rem 0;
 }
 
 .minesweeper-footer button:last-child {
@@ -126,4 +139,26 @@
   padding: 2rem;
   border-radius: 2rem;
   backdrop-filter: blur(3px);
+}
+
+@media (max-width: 800px) {
+  .gameboard {
+    width: 600px;
+  }
+  .gameboard-container {
+    overflow: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  .minesweeper-header div h2 {
+    font-size: 1.25rem;
+  }
+  .minesweeper-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+  .minesweeper-footer div {
+    display: none;
+  }
 }
