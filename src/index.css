@@ -131,7 +131,7 @@ h2 {
   }
   .navbar {
     flex-direction: row;
-    height: 13vh;
+    height: 100px;
     overflow: hidden;
     justify-content: space-between;
     padding-top: 10px;
@@ -140,7 +140,7 @@ h2 {
     justify-self: center;
   }
   .main-content {
-    max-height: 100vh;
+    max-height: calc(100dvh - 120px);
   }
   .footer h4 {
     text-align: center;
