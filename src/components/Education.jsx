@@ -9,7 +9,7 @@ export default function Education({ educationRef }) {
       <RevealLeft>
         <div className="education-content">
           <div>
-            <a href="https://wayne.edu/" target="_blank">
+            <a href="https://wayne.edu/" rel="noreferrer" target="_blank">
               <img src="../wayne_logo.png" alt="wayne logo" />
               <h3>Wayne State</h3>
             </a>
@@ -23,7 +23,7 @@ export default function Education({ educationRef }) {
           </div>
 
           <div>
-            <a href="https://www.udemy.com/" target="_blank">
+            <a href="https://www.udemy.com/" rel="noreferrer" target="_blank">
               <img src="../udemy_logo.png" alt="udemy logo" />
               <h3>Udemy</h3>
             </a>

@@ -12,7 +12,8 @@ export default function Navbar({
   headerRef,
   footerRef,
   educationRef,
-  isMobileWidth,
+  isResponsiveWidth,
+  isResponsiveHeight,
 }) {
   const aboutMeInView = useInView(aboutMeRef, { amount: 0.6 });
   const educationInView = useInView(educationRef, { amount: 0.6 });
@@ -41,7 +42,7 @@ export default function Navbar({
           <h1 onClick={() => scroll(headerRef)}>Ian Kernohan</h1>
         </RevealTop>
 
-        {isMobileWidth ? (
+        {isResponsiveWidth || isResponsiveHeight ? (
           <NavDrawer
             drawerIsOpen={drawerIsOpen}
             showDrawer={showDrawer}

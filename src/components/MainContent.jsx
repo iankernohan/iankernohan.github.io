@@ -6,7 +6,8 @@ import Header from "./Header";
 import Navbar from "./Navbar";
 import Projects from "./Projects";
 
-const mobileWidth = screen.availWidth <= 960;
+const mobileWidth = window.innerWidth <= 960;
+const responsiveHeight = window.innerHeight <= 645;
 
 export default function MainContent() {
   const headerRef = useRef(null);
@@ -15,10 +16,17 @@ export default function MainContent() {
   const footerRef = useRef(null);
   const educationRef = useRef(null);
 
-  const [isMobileWidth, setIsOpenWidth] = useState(mobileWidth);
+  const [isResponsiveWidth, setIsResponsiveWidth] = useState(mobileWidth);
+  const [isResponsiveHeight, setIsResponsiveHeight] =
+    useState(responsiveHeight);
 
   window.addEventListener("resize", () => {
-    screen.availWidth <= 960 ? setIsOpenWidth(true) : setIsOpenWidth(false);
+    window.innerWidth <= 960
+      ? setIsResponsiveWidth(true)
+      : setIsResponsiveWidth(false);
+    window.innerHeight <= 645
+      ? setIsResponsiveHeight(true)
+      : setIsResponsiveHeight(false);
   });
 
   return (
@@ -29,7 +37,8 @@ export default function MainContent() {
         projectsRef={projectsRef}
         footerRef={footerRef}
         educationRef={educationRef}
-        isMobileWidth={isMobileWidth}
+        isResponsiveWidth={isResponsiveWidth}
+        isResponsiveHeight={isResponsiveHeight}
       />
       <div className="main-content">
         <Header headerRef={headerRef} />

@@ -47,10 +47,13 @@ export default function Projects({ projectsRef }) {
 
         <RevealRight>
           <h3>Weather API</h3>
-          <img
-            src="https://images.unsplash.com/photo-1611224885990-ab7363d1f2a9?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cHJvamVjdHxlbnwwfHwwfHx8MA%3D%3D"
-            alt="hi"
-          />
+          <a
+            href="https://iankernohan.github.io/weatherAPI/"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <img src="weatherapi.png" alt="weather app image" />
+          </a>
           <p>
             A simple React application that gathers weather data from weather
             and location API's.
