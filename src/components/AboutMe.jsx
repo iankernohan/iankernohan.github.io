@@ -8,7 +8,7 @@ export default function AboutMe({ aboutMeRef }) {
         <div className="about-me-container">
           <h2>About Me</h2>
           <div className="image">
-            <img src="../me.jpg" alt="me" />
+            <img src="../me.JPG" alt="me" />
           </div>
           <p>
             My name is Ian Kernohan, I'm a self taught full-stack web developer.
