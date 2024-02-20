@@ -85,11 +85,7 @@ export default function Navbar({
               </section>
               <section>
                 <div>
-                  <a
-                    href="../resume.pdf"
-                    onClick={() => document.title("Resume")}
-                    target="_blank"
-                  >
+                  <a href="../resume.pdf" target="_blank" rel="noreferrer">
                     <button className="outline-button">Resume</button>
                   </a>
                 </div>

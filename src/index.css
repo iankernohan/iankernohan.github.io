@@ -167,6 +167,7 @@ h2 {
   background-position: 45%;
   background-repeat: no-repeat;
   background-size: cover;
+  color: var(--light-grey);
   font-size: 3rem;
   height: fit-content;
   min-height: 100dvh;
@@ -274,7 +275,7 @@ h2 {
 
 .about-me img {
   width: 100%;
-  transform: scale(2) translateY(-10%);
+  transform: scale(1.1) translateY(10px);
 }
 
 .about-me p {

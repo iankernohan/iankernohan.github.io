@@ -1,5 +1,5 @@
-import { motion, useAnimation, useInView } from "framer-motion";
 import { useEffect, useRef } from "react";
+import { motion, useAnimation, useInView } from "framer-motion";
 
 export default function RevealRight({ children }) {
   const ref = useRef(null);
@@ -11,7 +11,7 @@ export default function RevealRight({ children }) {
     if (isInView) {
       mainControls.start("visible");
     }
-  }, [isInView]);
+  }, [isInView, mainControls]);
 
   return (
     <div ref={ref} style={{ position: "relative" }}>
