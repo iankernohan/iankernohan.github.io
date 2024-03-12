@@ -49,7 +49,7 @@ export default function Projects({ projectsRef }) {
           </a>
           <p>
             A React application made for studying. Upload custom problem sets
-            and flashcards to imporve learning productivity!
+            and flashcards to improve learning productivity!
           </p>
         </RevealRight>
 
