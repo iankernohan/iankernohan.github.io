@@ -54,37 +54,6 @@ export default function Projects({ projectsRef }) {
         </RevealRight>
 
         <RevealRight>
-          <h3>Yelp Camp</h3>
-          <a
-            href="https://ianyelpcamp.onrender.com"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <img src="yelp-camp.png" alt="hi" />
-          </a>
-          <p>
-            An Express.js website taking advatage of tools such as ejs,
-            cloudinary, and mongoose. Create an account and share your favorite
-            campsites with the world!
-          </p>
-        </RevealRight>
-
-        <RevealRight>
-          <h3>Quiz App</h3>
-          <a
-            href="https://github.com/iankernohan/quiz"
-            rel="noreferrer"
-            target="_blank"
-          >
-            <img src="quiz.png" alt="hi" />
-          </a>
-          <p>
-            A React application made for studying. Upload custom problem sets
-            and flashcards to imporve learning productivity!
-          </p>
-        </RevealRight>
-
-        <RevealRight>
           <h3>Weather API</h3>
           <a
             href="https://iankernohan.github.io/weatherAPI/"
