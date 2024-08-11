@@ -29,18 +29,28 @@ export default function Contact() {
 
   return (
     <section className="contact">
-      <h4>Contact Me</h4>
+      <h3>Contact Me</h3>
       <form ref={form} onSubmit={sendEmail}>
-        <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="user_name" required />
-        <label htmlFor="email">Email</label>
-        <input type="email" id="email" name="user_email" required />
-        <label htmlFor="message">Message</label>
+        <input
+          type="text"
+          id="name"
+          name="user_name"
+          placeholder="Name"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          name="user_email"
+          placeholder="Email"
+          required
+        />
         <textarea
           id="message"
           cols="30"
           rows="5"
           name="message"
+          placeholder="Message"
           required
         ></textarea>
         <button>Send</button>

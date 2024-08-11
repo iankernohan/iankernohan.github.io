@@ -32,9 +32,8 @@ export default function Education({ educationRef }) {
               Udemy is where I've learned most of what I know about programming.
               I started on Udemy with Dr. Angela Yu's{" "}
               <i>100 Days of Code: The Complete Python Pro Bootcamp for 2023</i>
-              . After deciding on web development as a path I completed Colt
-              Steele's <i>The Web Developer Bootcamp 2023</i>. Currently, I'm
-              taking Jonas Schmedtmann's{" "}
+              . After moving on to web development, I completed Colt Steele's{" "}
+              <i>The Web Developer Bootcamp 2023</i> and Jonas Schmedtmann's{" "}
               <i>The Ultimate React Course: React, Redux & More</i>.
             </p>
           </div>
@@ -44,11 +43,11 @@ export default function Education({ educationRef }) {
             <h3>Misc.</h3>
             <p>
               I've learned a bit about programming through a few other
-              miscellanious sources such as YouTube, LeetCode and freeCodeCamp.
-              I've spent countless hours watching programming videos on YouTube,
-              including Harvard's CS50, thanks to freeCodeCamp. LeetCode was one
-              of the first programming websites I learned about and have enjoyed
-              spending lots of time on practice problems and interview prep.
+              miscellanious sources such as YouTube, LeetCode and Exercism.
+              Through YouTube, I've learned many concepts and fun tricks and
+              "attended" some classes including Harvard's CS50. As for LeetCode
+              and Exercism, I owe them for helping me to continue to hone my
+              technichal skills.
             </p>
           </div>
         </div>

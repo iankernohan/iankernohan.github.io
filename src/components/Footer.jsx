@@ -23,15 +23,6 @@ export default function Footer({
           flexWrap: "wrap",
         }}
       >
-        <RevealBottom delay={0.3}>
-          <section className="navigation">
-            <h4>Navigation</h4>
-            <div onClick={() => scroll(headerRef)}>Top</div>
-            <div onClick={() => scroll(aboutMeRef)}>About Me</div>
-            <div onClick={() => scroll(educationRef)}>Education</div>
-            <div onClick={() => scroll(projectsRef)}>Projects</div>
-          </section>
-        </RevealBottom>
         <RevealBottom delay={0.4}>
           <section className="links">
             <h4>Links</h4>
@@ -55,6 +46,17 @@ export default function Footer({
             </div>
           </section>
         </RevealBottom>
+
+        <RevealBottom delay={0.3}>
+          <section className="navigation">
+            <h4>Navigation</h4>
+            <div onClick={() => scroll(headerRef)}>Top</div>
+            <div onClick={() => scroll(aboutMeRef)}>About Me</div>
+            <div onClick={() => scroll(educationRef)}>Education</div>
+            <div onClick={() => scroll(projectsRef)}>Projects</div>
+          </section>
+        </RevealBottom>
+
         <RevealBottom delay={0.5}>
           <section className="links">
             <h4>Contact Info</h4>

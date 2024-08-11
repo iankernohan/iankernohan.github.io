@@ -342,6 +342,7 @@ h2 {
 .education p {
   font-weight: 300;
   text-align: start;
+  line-height: 1.6;
 }
 
 @media (max-width: 960px) {
@@ -411,6 +412,7 @@ h2 {
 .project-container p {
   font-size: 1rem;
   font-weight: 300;
+  line-height: 1.6rem;
 }
 
 /* CONTACT CONTENT  */
@@ -422,16 +424,35 @@ h2 {
   gap: 20px;
 }
 
+.contact h3 {
+  color: var(--light-teal);
+  font-size: 1.25rem;
+}
+
 .contact form {
-  display: grid;
-  grid-template-columns: 20% 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 0.5rem;
   column-gap: 1.25rem;
 }
 
+.contact input,
+.contact textarea {
+  border: none;
+  outline: none;
+  background-color: var(--dark-grey);
+  padding: 0.5rem;
+  transition: all 0.5s ease;
+}
+
+.contact input:focus,
+.contact textarea:focus {
+  outline: 1px solid var(--dark-teal);
+  outline-offset: 2px;
+}
+
 .contact button {
-  grid-column: span 2;
-  justify-self: end;
+  align-self: end;
   width: 25%;
   background-color: var(--light-teal);
   color: var(--dark-grey);
@@ -457,6 +478,7 @@ h2 {
   gap: 50px;
   font-weight: 300;
   flex-wrap: wrap;
+  padding: 5%;
 }
 
 .footer h4 {
@@ -476,4 +498,9 @@ h2 {
 
 .footer div {
   cursor: pointer;
+}
+
+.navigation,
+.links {
+  margin: 0.5rem 0;
 }
