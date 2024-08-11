@@ -343,6 +343,7 @@ h2 {
   font-weight: 300;
   text-align: start;
   line-height: 1.6;
+  text-align: center;
 }
 
 @media (max-width: 960px) {

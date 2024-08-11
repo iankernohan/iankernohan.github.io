@@ -10,7 +10,7 @@ export default function Header({ headerRef }) {
             <h3>
               Hi! I&apos;m <strong>Ian</strong>
             </h3>
-            <h4>Developer</h4>
+            <h4>Software Developer</h4>
           </RevealLeft>
         </div>
         <div className="p">
