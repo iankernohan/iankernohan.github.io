@@ -1,14 +1,18 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import MainContent from "./components/MainContent";
-import Minesweeper from "./components/Minesweeper/Minesweeper";
+import { lazy, Suspense } from "react";
+
+const Minesweeper = lazy(() => import("./components/Minesweeper/Minesweeper"));
 
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<MainContent />} />
-        <Route path="minesweeper" element={<Minesweeper />} />
-      </Routes>
+      <Suspense fallback={<div>Loading Mineseeper...</div>}>
+        <Routes>
+          <Route path="/" element={<MainContent />} />
+          <Route path="minesweeper" element={<Minesweeper />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
