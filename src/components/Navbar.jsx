@@ -3,6 +3,7 @@ import NavDrawer from "./NavDrawer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import FadeIn from "../animations/FadeIn";
+import { useInView } from "framer-motion";
 
 export default function Navbar({
   aboutMeRef,
@@ -13,10 +14,12 @@ export default function Navbar({
   isResponsiveWidth,
   isResponsiveHeight,
 }) {
-  // const aboutMeInView = useInView(aboutMeRef, { amount: 0.6 });
-  // const educationInView = useInView(educationRef, { amount: 0.6 });
-  // const projectsInView = useInView(projectsRef, { amount: 0.5 });
-  // const footerInView = useInView(footerRef, { amount: 0.6 });
+  const aboutMeInView = useInView(aboutMeRef, { amount: 0.6 });
+  const educationInView = useInView(educationRef, { amount: 0.6 });
+  const projectsInView = useInView(projectsRef, { amount: 0.5 });
+  const footerInView = useInView(footerRef, { amount: 0.6 });
+
+  console.log(aboutMeInView);
 
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
@@ -51,7 +54,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(aboutMeRef)}
-                    // className={aboutMeInView ? "active" : ""}
+                    className={aboutMeInView ? "active" : ""}
                   >
                     About Me
                   </span>
@@ -59,7 +62,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(educationRef)}
-                    // className={educationInView ? "active" : ""}
+                    className={educationInView ? "active" : ""}
                   >
                     Education
                   </span>
@@ -67,7 +70,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(projectsRef)}
-                    // className={projectsInView ? "active" : ""}
+                    className={projectsInView ? "active" : ""}
                   >
                     Projects
                   </span>
@@ -75,7 +78,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(footerRef)}
-                    // className={footerInView ? "active" : ""}
+                    className={footerInView ? "active" : ""}
                   >
                     Contact
                   </span>
@@ -108,7 +111,7 @@ export default function Navbar({
               <div>
                 <span
                   onClick={() => scroll(aboutMeRef)}
-                  // className={aboutMeInView ? "active" : ""}
+                  className={aboutMeInView ? "active" : ""}
                 >
                   About Me
                 </span>
@@ -116,7 +119,7 @@ export default function Navbar({
               <div>
                 <span
                   onClick={() => scroll(educationRef)}
-                  // className={educationInView ? "active" : ""}
+                  className={educationInView ? "active" : ""}
                 >
                   Education
                 </span>
@@ -124,7 +127,7 @@ export default function Navbar({
               <div>
                 <span
                   onClick={() => scroll(projectsRef)}
-                  // className={projectsInView ? "active" : ""}
+                  className={projectsInView ? "active" : ""}
                 >
                   Projects
                 </span>
@@ -132,7 +135,7 @@ export default function Navbar({
               <div>
                 <span
                   onClick={() => scroll(footerRef)}
-                  // className={footerInView ? "active" : ""}
+                  className={footerInView ? "active" : ""}
                 >
                   Contact
                 </span>

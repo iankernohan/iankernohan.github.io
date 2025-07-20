@@ -8,7 +8,7 @@ export default function Projects({ projectsRef }) {
       </FadeIn>
       <div className="project-container">
         <FadeIn>
-          <h3>Elliott & Murray Builders</h3>
+          <h3>Elliott & Murray</h3>
           <a
             href="https://elliottandmurraybuilders.com/"
             rel="noreferrer"
