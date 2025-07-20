@@ -22,7 +22,7 @@ export default function RevealBottom({ children, delay = 0.2 }) {
         }}
         initial="hidden"
         animate={mainControls}
-        transition={{ duration: 0.5, delay: delay }}
+        transition={{ ease: "easeOut", duration: 0.5, delay: delay }}
       >
         {children}
       </motion.div>

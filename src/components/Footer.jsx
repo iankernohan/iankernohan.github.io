@@ -1,4 +1,4 @@
-import RevealBottom from "../animations/RevealBottom";
+import FadeIn from "../animations/FadeIn";
 import Contact from "./Contact";
 
 export default function Footer({
@@ -11,9 +11,9 @@ export default function Footer({
 }) {
   return (
     <footer className="footer" ref={footerRef}>
-      <RevealBottom>
+      <FadeIn>
         <Contact />
-      </RevealBottom>
+      </FadeIn>
       <div
         style={{
           display: "flex",
@@ -23,7 +23,7 @@ export default function Footer({
           flexWrap: "wrap",
         }}
       >
-        <RevealBottom delay={0.4}>
+        <FadeIn delay={0.4}>
           <section className="links">
             <h4>Links</h4>
             <div>
@@ -45,9 +45,9 @@ export default function Footer({
               </a>
             </div>
           </section>
-        </RevealBottom>
+        </FadeIn>
 
-        <RevealBottom delay={0.3}>
+        <FadeIn delay={0.3}>
           <section className="navigation">
             <h4>Navigation</h4>
             <div onClick={() => scroll(headerRef)}>Top</div>
@@ -55,14 +55,14 @@ export default function Footer({
             <div onClick={() => scroll(educationRef)}>Education</div>
             <div onClick={() => scroll(projectsRef)}>Projects</div>
           </section>
-        </RevealBottom>
+        </FadeIn>
 
-        <RevealBottom delay={0.5}>
+        <FadeIn delay={0.5}>
           <section className="links">
             <h4>Contact Info</h4>
             <p>kernohani1@gmail.com</p>
           </section>
-        </RevealBottom>
+        </FadeIn>
       </div>
     </footer>
   );

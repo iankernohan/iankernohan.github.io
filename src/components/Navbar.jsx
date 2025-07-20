@@ -1,10 +1,8 @@
 import { FaGithub } from "react-icons/fa";
-import RevealTop from "../animations/RevealTop";
-import { useInView } from "framer-motion";
-import RevealBottom from "../animations/RevealBottom";
 import NavDrawer from "./NavDrawer";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import FadeIn from "../animations/FadeIn";
 
 export default function Navbar({
   aboutMeRef,
@@ -15,10 +13,10 @@ export default function Navbar({
   isResponsiveWidth,
   isResponsiveHeight,
 }) {
-  const aboutMeInView = useInView(aboutMeRef, { amount: 0.6 });
-  const educationInView = useInView(educationRef, { amount: 0.6 });
-  const projectsInView = useInView(projectsRef, { amount: 0.5 });
-  const footerInView = useInView(footerRef, { amount: 0.6 });
+  // const aboutMeInView = useInView(aboutMeRef, { amount: 0.6 });
+  // const educationInView = useInView(educationRef, { amount: 0.6 });
+  // const projectsInView = useInView(projectsRef, { amount: 0.5 });
+  // const footerInView = useInView(footerRef, { amount: 0.6 });
 
   const [drawerIsOpen, setDrawerIsOpen] = useState(false);
 
@@ -38,9 +36,9 @@ export default function Navbar({
   return (
     <div style={{ display: "absolute" }}>
       <nav className="navbar">
-        <RevealTop>
+        <FadeIn direction="down" delay="0">
           <h1 onClick={() => scroll(headerRef)}>Ian Kernohan</h1>
-        </RevealTop>
+        </FadeIn>
 
         {isResponsiveWidth || isResponsiveHeight ? (
           <NavDrawer
@@ -53,7 +51,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(aboutMeRef)}
-                    className={aboutMeInView ? "active" : ""}
+                    // className={aboutMeInView ? "active" : ""}
                   >
                     About Me
                   </span>
@@ -61,7 +59,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(educationRef)}
-                    className={educationInView ? "active" : ""}
+                    // className={educationInView ? "active" : ""}
                   >
                     Education
                   </span>
@@ -69,7 +67,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(projectsRef)}
-                    className={projectsInView ? "active" : ""}
+                    // className={projectsInView ? "active" : ""}
                   >
                     Projects
                   </span>
@@ -77,7 +75,7 @@ export default function Navbar({
                 <div>
                   <span
                     onClick={() => scroll(footerRef)}
-                    className={footerInView ? "active" : ""}
+                    // className={footerInView ? "active" : ""}
                   >
                     Contact
                   </span>
@@ -106,41 +104,42 @@ export default function Navbar({
           </NavDrawer>
         ) : (
           <>
-            <RevealTop>
-              <span
-                onClick={() => scroll(aboutMeRef)}
-                className={aboutMeInView ? "active" : ""}
-              >
-                About Me
-              </span>
-            </RevealTop>
-            <RevealTop>
-              <span
-                onClick={() => scroll(educationRef)}
-                className={educationInView ? "active" : ""}
-              >
-                Education
-              </span>
-            </RevealTop>
-            <RevealTop>
-              <span
-                onClick={() => scroll(projectsRef)}
-                className={projectsInView ? "active" : ""}
-              >
-                Projects
-              </span>
-            </RevealTop>
-            <RevealTop>
-              <span
-                onClick={() => scroll(footerRef)}
-                className={footerInView ? "active" : ""}
-              >
-                Contact
-              </span>
-            </RevealTop>
-
+            <FadeIn delay="0" className="links" direction="down">
+              <div>
+                <span
+                  onClick={() => scroll(aboutMeRef)}
+                  // className={aboutMeInView ? "active" : ""}
+                >
+                  About Me
+                </span>
+              </div>
+              <div>
+                <span
+                  onClick={() => scroll(educationRef)}
+                  // className={educationInView ? "active" : ""}
+                >
+                  Education
+                </span>
+              </div>
+              <div>
+                <span
+                  onClick={() => scroll(projectsRef)}
+                  // className={projectsInView ? "active" : ""}
+                >
+                  Projects
+                </span>
+              </div>
+              <div>
+                <span
+                  onClick={() => scroll(footerRef)}
+                  // className={footerInView ? "active" : ""}
+                >
+                  Contact
+                </span>
+              </div>
+            </FadeIn>
             <div className="navbar-bottom">
-              <RevealBottom>
+              <FadeIn delay="0">
                 <a
                   href="../resume.pdf"
                   onClick={() => document.title("Resume")}
@@ -148,13 +147,13 @@ export default function Navbar({
                 >
                   <button className="outline-button">Resume</button>
                 </a>
-              </RevealBottom>
-              <RevealBottom>
+              </FadeIn>
+              <FadeIn delay="0">
                 <Link to="minesweeper">
                   <button className="outline-button">Play Minesweeper</button>
                 </Link>
-              </RevealBottom>
-              <RevealBottom>
+              </FadeIn>
+              <FadeIn delay="0">
                 <a
                   href="https://github.com/iankernohan"
                   target="_blank"
@@ -162,7 +161,7 @@ export default function Navbar({
                 >
                   <FaGithub />
                 </a>
-              </RevealBottom>
+              </FadeIn>
             </div>
           </>
         )}

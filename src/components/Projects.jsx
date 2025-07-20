@@ -1,28 +1,29 @@
-import RevealRight from "../animations/RevealRight";
+import FadeIn from "../animations/FadeIn";
 
 export default function Projects({ projectsRef }) {
   return (
     <section className="projects" ref={projectsRef}>
-      <RevealRight>
+      <FadeIn direction="left">
         <h2>Projects</h2>
-      </RevealRight>
+      </FadeIn>
       <div className="project-container">
-        <RevealRight>
-          <h3>Melting Ice</h3>
+        <FadeIn>
+          <h3>Elliott & Murray Builders</h3>
           <a
-            href="https://meltingicemarketing.com"
+            href="https://elliottandmurraybuilders.com/"
             rel="noreferrer"
             target="_blank"
           >
-            <img src="meltingice.png" alt="hi" />
+            <img src="elliottandmurray.png" alt="hi" />
           </a>
           <p>
             A sleek, fully responsive marketing site developed with React.
-            Discover Melting Ice Marketing to help your business grow.
+            Discover Elliott & Murray builders to start your nect home
+            improvement project.
           </p>
-        </RevealRight>
+        </FadeIn>
 
-        <RevealRight>
+        <FadeIn>
           <h3>Marikoz</h3>
           <a
             href="https://github.com/iankernohan/ConsoleGame"
@@ -36,9 +37,9 @@ export default function Projects({ projectsRef }) {
             battle enemies, and seek the hidden jewel in the dungeons of
             Marikoz.
           </p>
-        </RevealRight>
+        </FadeIn>
 
-        <RevealRight>
+        <FadeIn>
           <h3>Exercise Tracker</h3>
           <a
             href="https://exercise-tracker-pzks.onrender.com"
@@ -51,9 +52,9 @@ export default function Projects({ projectsRef }) {
             A fullstack MERN application, using tools such as Tailwind and React
             Router to create a SPA for tracking exercise history.
           </p>
-        </RevealRight>
+        </FadeIn>
 
-        <RevealRight>
+        <FadeIn>
           <h3>Weather API</h3>
           <a
             href="https://iankernohan.github.io/weatherAPI/"
@@ -66,7 +67,7 @@ export default function Projects({ projectsRef }) {
             A simple React application that gathers weather data from weather
             and location API's.
           </p>
-        </RevealRight>
+        </FadeIn>
       </div>
     </section>
   );
