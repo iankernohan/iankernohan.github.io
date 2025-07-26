@@ -277,8 +277,10 @@ h2 {
 }
 
 .about-me .heading {
-  text-align: start;
-  grid-column: 2;
+  text-align: center;
+  grid-column: 1 / span 2;
+  justify-self: center;
+  margin-bottom: 2rem;
 }
 
 .about-me img {
@@ -299,10 +301,10 @@ h2 {
   .about-me .image {
     width: 10rem;
     float: right;
+    margin-left: 8px;
   }
   .about-me h2 {
     text-align: center;
-    margin-bottom: 2rem;
   }
   .about-me p {
     font-size: 1.25rem;
